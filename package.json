@@ -27,6 +27,7 @@
     "mocha": "*",
     "expect.js": "*",
     "istanbul": "*",
-    "muk": "*"
+    "muk": "*",
+    "coveralls": "*"
   }
 }
