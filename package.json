@@ -1,0 +1,25 @@
+{
+  "name": "upyun-cnpm",
+  "version": "0.0.1",
+  "description": "Upyun client",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test-all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cnpm/upyun-cnpm.git"
+  },
+  "keywords": [
+    "Upyun"
+  ],
+  "author": "Jackson Tian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cnpm/upyun-cnpm/issues"
+  },
+  "homepage": "https://github.com/cnpm/upyun-cnpm",
+  "dependencies": {
+    "urllib": "*"
+  }
+}
