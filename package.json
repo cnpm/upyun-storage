@@ -21,5 +21,11 @@
   "homepage": "https://github.com/cnpm/upyun-cnpm",
   "dependencies": {
     "urllib": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "expect.js": "*",
+    "istanbul": "*",
+    "muk": "*"
   }
 }
