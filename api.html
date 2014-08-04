@@ -96,6 +96,10 @@
     </li>
 
     <li>
+      <a href="#client__putBuffer">putBuffer</a>
+    </li>
+
+    <li>
       <a href="#client__getFile">getFile</a>
     </li>
 
@@ -466,6 +470,57 @@
       <td>参数</td>
       <td>filepath(String)</td>
       <td colspan="2">文件实际地址</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>filename(String)</td>
+      <td colspan="2">上传后的位于空间中的位置。假定空间为/，你的文件为file.js，那么就是/file.js</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">回调函数</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__putBuffer">
+    putBuffer
+  </h3>
+  
+
+  <p>上传文件(通过Buffer)<br />Example:</p><pre><code>var buffer = fs.readFileSync(&#39;/path/to/file&#39;);
+client.putFile(buffer, &#39;/file.tgz&#39;, function (err, data, res) {
+ // TODO
+});
+</code></pre><p>Callback:</p><ul>
+<li><code>err</code>, 异常对象</li>
+<li><code>data</code>, 得到的数据。本方法中，data中不包含任何信息</li>
+<li><code>res</code>, 响应HTTP response对象。</li>
+</ul>
+
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>方法</td>
+      <td>Client.prototype.putBuffer()</td> 
+      <td></td>
+      <td>putBuffer</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>buffer(Buffer)</td>
+      <td colspan="2">从文件中读取到的buffer</td>
     </tr>
   
 
