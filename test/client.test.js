@@ -66,6 +66,18 @@ describe('client', function () {
     });
   });
 
+  it('putBuffer', function (done) {
+    var client = Client.create('test', 'test1234', 'jackson-test-space');
+    fs.readFile(filepath, function (err, data) {
+      expect(err).to.not.be.ok();
+      client.putBuffer(data, '/sticker_buffer_' + randomId + '.jpg', function (err, data, res) {
+        expect(err).to.not.be.ok();
+        expect(res.statusCode).to.be(200);
+        done();
+      });
+    });
+  });
+
   it('getFile', function (done) {
     var client = Client.create('test', 'test1234', 'jackson-test-space');
     client.getFile('/sticker_' + randomId + '.jpg', function (err, data, res) {
