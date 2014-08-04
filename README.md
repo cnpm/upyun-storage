@@ -49,7 +49,7 @@ client.putFile('/path/to/file.jpg', '/file.jpg', function (err, data, res) {
   console.log('上传成功');
 });
 ```
-更多细节，参见[API文档](http://cnpm.github.com/upyun-storage/api.html)。更多又拍云存储细节，参见[官方文档](http://docs.upyun.com/api/http_api/)
+更多细节，参见[API文档](http://cnpm.github.io/upyun-storage/api.html)。更多又拍云存储细节，参见[官方文档](http://docs.upyun.com/api/http_api/)
 
 ## License
 The MIT [License](https://github.com/cnpm/upyun-storage/blob/master/LICENSE). feel free to use it.
