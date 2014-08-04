@@ -118,17 +118,13 @@ describe('client', function () {
 
     it('ok', function (done) {
       var writable = fs.createWriteStream(download);
-      client.pipe('/sticker_' + randomId + '.jpg', writable);
-      writable.on('finish', function () {
+      client.pipe('/sticker_' + randomId + '.jpg', writable, function (err) {
+        expect(err).to.not.be.ok();
         fs.readFile(download, function (err, file) {
           expect(err).to.not.be.ok();
           expect(file.length).to.be(size);
           done();
         });
-      });
-      writable.on('error', function (err) {
-        expect(err).to.be.not.ok();
-        done();
       });
     });
   });
