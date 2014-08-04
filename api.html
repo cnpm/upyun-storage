@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>upyun-storage Documentation</title>
+    <meta name="keywords" content="Upyun,Storage" />
+    <meta name="description" content="Upyun storage client" />
+    <script src="assets/prettify.js"></script>
+    <script src="assets/jquery-1.8.2.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/base.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./index.html">upyun-storage</a>
+        </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+          
+            <li>
+              <a href="./api.html">API Docs</a>
+            </li>
+          
+          
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </nav>
+    <header class="jumbotron subhead">
+      <div class="container">
+        <h1>upyun-storage <small>Version: 0.0.2 By @Jackson Tian</small></h1>
+        <p class="lead">
+          Upyun storage client
+        </p>
+      </div>
+    </header>
+
+<div class="container content">
+  <div class="row">
+    <div class="col-md-3 bs-docs-sidebar">
+      <ul class="nav nav-list bs-docs-sidenav affix">
+
+  <li>
+    <a href="#api_client"><i class="icon-chevron-right"></i>client</a>
+  </li>
+
+</ul>
+
+    </div>
+    <div class="col-md-9">
+      
+        <section id="api_client" class="api">
+  <h2>client: API索引</h2>
+  <ul class="indexs">
+  
+    <li>
+      <a href="#client__md5">md5</a>
+    </li>
+
+    <li>
+      <a href="#client__signature">signature</a>
+    </li>
+
+    <li>
+      <a href="#client__handle">handle</a>
+    </li>
+
+    <li>
+      <a href="#client__Client">Client</a>
+    </li>
+
+    <li>
+      <a href="#client__setAddress">setAddress</a>
+    </li>
+
+    <li>
+      <a href="#client__getAuthorization">getAuthorization</a>
+    </li>
+
+    <li>
+      <a href="#client__makeOptions">makeOptions</a>
+    </li>
+
+    <li>
+      <a href="#client__putFile">putFile</a>
+    </li>
+
+    <li>
+      <a href="#client__getFile">getFile</a>
+    </li>
+
+    <li>
+      <a href="#client__pipe">pipe</a>
+    </li>
+
+    <li>
+      <a href="#client__getFileInfo">getFileInfo</a>
+    </li>
+
+    <li>
+      <a href="#client__deleteFile">deleteFile</a>
+    </li>
+
+    <li>
+      <a href="#client__putFolder">putFolder</a>
+    </li>
+
+    <li>
+      <a href="#client__deleteFolder">deleteFolder</a>
+    </li>
+
+    <li>
+      <a href="#client__getFolder">getFolder</a>
+    </li>
+
+    <li>
+      <a href="#client__bucketUsage">bucketUsage</a>
+    </li>
+
+    <li>
+      <a href="#client_Client_create">create</a>
+    </li>
+
+  </ul>
+  <hr />
+
+  
+  <h3 data-id="client__md5">
+    md5
+  </h3>
+  
+
+  <p>MD5工具函数</p>
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>函数</td>
+      <td>md5()</td> 
+      <td></td>
+      <td>md5</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>data(String)</td>
+      <td colspan="2">待求MD5值的字符串</td>
+    </tr>
+  
+
+    <tr>
+      <td>返回</td>
+      <td>String</td>
+      <td colspan="2">md5值</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__signature">
+    signature
+  </h3>
+  
+
+  <p>签名工具函数，详情参见<a href="http://docs.upyun.com/api/http_api/#UPYUN签名认证">http://docs.upyun.com/api/http_api/#UPYUN签名认证</a></p>
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>函数</td>
+      <td>signature()</td> 
+      <td></td>
+      <td>signature</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>method(String)</td>
+      <td colspan="2">HTTP请求方法</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>uri(String)</td>
+      <td colspan="2">路径</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>date(String)</td>
+      <td colspan="2">GMT格式的时间字符串</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>contentLength(Number)</td>
+      <td colspan="2">内容长度</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>password(String)</td>
+      <td colspan="2">操作员的密码</td>
+    </tr>
+  
+
+    <tr>
+      <td>返回</td>
+      <td>String</td>
+      <td colspan="2">md5值</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__handle">
+    handle
+  </h3>
+  
+
+  <p>辅助函数，截获异常，并包装新异常对象</p>
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>函数</td>
+      <td>handle()</td> 
+      <td></td>
+      <td>handle</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">回调函数</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__Client">
+    Client
+  </h3>
+  
+
+  <p>辅助函数，截获异常，并包装新异常对象</p>
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>函数</td>
+      <td>Client()</td> 
+      <td></td>
+      <td>Client</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>oprator(String)</td>
+      <td colspan="2">操作员</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>password(String)</td>
+      <td colspan="2">操作员的密码</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>bucket(String)</td>
+      <td colspan="2">又拍云空间名</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__setAddress">
+    setAddress
+  </h3>
+  
+
+  <p>切换又拍云路线<br />Example:</p><pre><code>client.setAddress(&#39;v0&#39;);
+</code></pre>
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>方法</td>
+      <td>Client.prototype.setAddress()</td> 
+      <td></td>
+      <td>setAddress</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>version(String)</td>
+      <td colspan="2">版本。v0：自动判断，v1：电信，v2：联通网通，v3：移动铁通</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__getAuthorization">
+    getAuthorization
+  </h3>
+  
+
+  <p>生成Authorization值</p>
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>方法</td>
+      <td>Client.prototype.getAuthorization()</td> 
+      <td></td>
+      <td>getAuthorization</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>method(String)</td>
+      <td colspan="2">HTTP请求方法</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>uri(String)</td>
+      <td colspan="2">路径</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>date(String)</td>
+      <td colspan="2">GMT格式的时间字符串</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>contentLength(Number)</td>
+      <td colspan="2">内容长度</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__makeOptions">
+    makeOptions
+  </h3>
+  
+
+  <p>生成urllib的opts对象</p>
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>函数</td>
+      <td>makeOptions()</td> 
+      <td></td>
+      <td>makeOptions</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>that(Object)</td>
+      <td colspan="2">client对象</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>method(String)</td>
+      <td colspan="2">HTTP请求方法</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>uri(String)</td>
+      <td colspan="2">路径</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>filepath(String)</td>
+      <td colspan="2">文件的位置</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>size(Number)</td>
+      <td colspan="2">文件大小</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__putFile">
+    putFile
+  </h3>
+  
+
+  <p>上传文件<br />Example:</p><pre><code>client.putFile(&#39;/path/to/file&#39;, &#39;/file.tgz&#39;, function (err, data, res) {
+ // TODO
+});
+</code></pre><p>Callback:</p><ul>
+<li><code>err</code>, 异常对象</li>
+<li><code>data</code>, 得到的数据。本方法中，data中不包含任何信息</li>
+<li><code>res</code>, 响应HTTP response对象。</li>
+</ul>
+
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>方法</td>
+      <td>Client.prototype.putFile()</td> 
+      <td></td>
+      <td>putFile</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>filepath(String)</td>
+      <td colspan="2">文件实际地址</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>filename(String)</td>
+      <td colspan="2">上传后的位于空间中的位置。假定空间为/，你的文件为file.js，那么就是/file.js</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">回调函数</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__getFile">
+    getFile
+  </h3>
+  
+
+  <p>下载文件<br />Example:</p><pre><code>client.getFile(&#39;/file.tgz&#39;, function (err, data, res) {
+ fs.writeFile(&#39;/path/to/file&#39;, data);
+});
+</code></pre><p>Callback:</p><ul>
+<li><code>err</code>, 异常对象</li>
+<li><code>data</code>, 得到的数据，即文件的Buffer。</li>
+<li><code>res</code>, 响应HTTP response对象。</li>
+</ul>
+
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>方法</td>
+      <td>Client.prototype.getFile()</td> 
+      <td></td>
+      <td>getFile</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>filename(String)</td>
+      <td colspan="2">文件位于空间中的位置。</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">回调函数</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__pipe">
+    pipe
+  </h3>
+  
+
+  <p>流式下载文件<br />Example:</p><pre><code>var writable = fs.createWriteStream(&#39;/path/to/file&#39;);
+client.pipe(&#39;/file.tgz&#39;, writable);
+</code></pre>
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>方法</td>
+      <td>Client.prototype.pipe()</td> 
+      <td></td>
+      <td>pipe</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>filename(String)</td>
+      <td colspan="2">文件位于空间中的位置。</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>writable(Stream)</td>
+      <td colspan="2">可写流对象。下载获得的数据会pipe到该writable对象</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__getFileInfo">
+    getFileInfo
+  </h3>
+  
+
+  <p>获取文件信息<br />Example:</p><pre><code>client.getFileInfo(&#39;/file.tgz&#39;, function (err, data, res) {
+ // data =&gt; {type: file, size: 1024, lastModified: some date}
+});
+</code></pre><p>Callback:</p><ul>
+<li><code>err</code>, 异常对象</li>
+<li><code>data</code>, 文件信息，包含type、size和lastModified</li>
+<li><code>res</code>, 响应HTTP response对象。</li>
+</ul>
+
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>方法</td>
+      <td>Client.prototype.getFileInfo()</td> 
+      <td></td>
+      <td>getFileInfo</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>filename(String)</td>
+      <td colspan="2">文件位于空间中的位置。</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">回调函数</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__deleteFile">
+    deleteFile
+  </h3>
+  
+
+  <p>删除文件<br />Example:</p><pre><code>client.deleteFile(&#39;/file.tgz&#39;, function (err, data, res) {
+ // TODO
+});
+</code></pre><p>Callback:</p><ul>
+<li><code>err</code>, 异常对象</li>
+<li><code>data</code>, 响应对象。本函数中data无实际意义，没有err，即表示成功</li>
+<li><code>res</code>, 响应HTTP response对象。</li>
+</ul>
+
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>方法</td>
+      <td>Client.prototype.deleteFile()</td> 
+      <td></td>
+      <td>deleteFile</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>filename(String)</td>
+      <td colspan="2">文件位于空间中的位置。</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">回调函数</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__putFolder">
+    putFolder
+  </h3>
+  
+
+  <p>创建文件夹<br />Example:</p><pre><code>client.putFolder(&#39;/folder/&#39;, function (err, list, res) {
+ // TODO
+});
+</code></pre><p>Callback:</p><ul>
+<li><code>err</code>, 异常对象</li>
+<li><code>data</code>, 响应对象。本函数中data无实际意义，没有err，即表示成功</li>
+<li><code>res</code>, 响应HTTP response对象。</li>
+</ul>
+
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>方法</td>
+      <td>Client.prototype.putFolder()</td> 
+      <td></td>
+      <td>putFolder</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>foldername(String)</td>
+      <td colspan="2">文件夹位于空间中的位置。</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">回调函数</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__deleteFolder">
+    deleteFolder
+  </h3>
+  
+
+  <p>删除文件夹<br />Example:</p><pre><code>client.deleteFolder(&#39;/folder/&#39;, function (err, list, res) {
+ // TODO
+});
+</code></pre><p>Callback:</p><ul>
+<li><code>err</code>, 异常对象</li>
+<li><code>data</code>, 响应对象。本函数中data无实际意义，没有err，即表示成功</li>
+<li><code>res</code>, 响应HTTP response对象。</li>
+</ul>
+
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>属性</td>
+      <td>Client.prototype.deleteFolder</td> 
+      <td></td>
+      <td>deleteFolder</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>foldername(String)</td>
+      <td colspan="2">文件夹位于空间中的位置。</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">回调函数</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__getFolder">
+    getFolder
+  </h3>
+  
+
+  <p>获取文件夹的信息<br />Example:</p><pre><code>client.getFolder(&#39;/folder/&#39;, function (err, list, res) {
+ // list =&gt; [{name: &#39;test.js&#39;, type: &#39;file&#39;, size: 1024, lastModified: new Date()}]
+});
+</code></pre><p>Callback:</p><ul>
+<li><code>err</code>, 异常对象</li>
+<li><code>data</code>, 文件夹信息，包含name、type、size和lastModified的数组</li>
+<li><code>res</code>, 响应HTTP response对象。</li>
+</ul>
+
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>方法</td>
+      <td>Client.prototype.getFolder()</td> 
+      <td></td>
+      <td>getFolder</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>dirpath(String)</td>
+      <td colspan="2">文件夹位于空间中的位置。</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">回调函数</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client__bucketUsage">
+    bucketUsage
+  </h3>
+  
+
+  <p>获取空间的使用信息<br />Example:</p><pre><code>client.bucketUsage(function (err, used) {
+ // used =&gt; 1024
+});
+</code></pre><p>Callback:</p><ul>
+<li><code>err</code>, 异常对象</li>
+<li><code>data</code>, 使用信息，使用量</li>
+<li><code>res</code>, 响应HTTP response对象</li>
+</ul>
+
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>方法</td>
+      <td>Client.prototype.bucketUsage()</td> 
+      <td></td>
+      <td>bucketUsage</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">回调函数</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 data-id="client_Client_create">
+    create
+  </h3>
+  
+
+  <p>根据操作员、密码和空间名创建client实例<br />Example:</p><pre><code>var client = Client.create(&#39;oprator&#39;, &#39;password&#39;, &#39;bucket&#39;);
+</code></pre>
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  
+    <tr>
+      <td>方法</td>
+      <td>Client.create()</td> 
+      <td>Client</td>
+      <td>create</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>oprator(String)</td>
+      <td colspan="2">操作员</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>password(String)</td>
+      <td colspan="2">回调函数</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>bucket(String)</td>
+      <td colspan="2">空间名</td>
+    </tr>
+  
+
+    <tr>
+      <td>返回</td>
+      <td>Object</td>
+      <td colspan="2">创建的Client实例</td>
+    </tr>
+  
+
+  
+  </table>
+  
+</section>
+
+      
+    </div>
+  </div>
+</div>
+      <footer class="footer">
+        <div class="container">
+          <p class="pull-right">
+            <a href="#">Back to top</a>
+          </p>
+          <p>此文档通过doxmate生成。主题借鉴Bootstrap API文档风格，注解基于<a href="https://github.com/visionmedia/dox">Dox</a>。欢迎关注doxmate作者<a href="http://weibo.com/shyvo" target="_blank">@朴灵</a></p>
+          <ul class="footer-links">
+            <li><a href="https://github.com/visionmedia/dox">Dox主页</a></li>
+            <li><a href="http://html5ify.com/doxmate">Doxmate主页</a></li>
+            <li><a href="https://github.com/JacksonTian/doxmate">Doxmate源码</a></li>
+            <li><a href="https://github.com/JacksonTian/doxmate/issues?state=open">提交bug</a></li>
+          </ul>
+      </div>
+    </footer>
+    <script>
+      $(function() {
+        $('pre').addClass('prettyprint');
+        $('td pre').removeClass('prettyprint');
+        prettyPrint();
+        var $window = $(window);
+        $('.bs-docs-sidenav').affix({
+          offset: {
+            top: function () {
+              return $window.width() <= 980 ? 290 : 210
+            },
+            bottom: 270
+          }
+        });
+        $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
+          var node = $(this);
+          // 总是设置id
+          node.attr("id", node.data('id') || "index_" + node.text());
+          node.css("paddingTop", 50);
+        });
+      });
+    </script>
+  
+  </body>
+</html>
+
