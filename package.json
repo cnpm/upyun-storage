@@ -1,6 +1,6 @@
 {
   "name": "upyun-storage",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Upyun storage client",
   "main": "index.js",
   "scripts": {
